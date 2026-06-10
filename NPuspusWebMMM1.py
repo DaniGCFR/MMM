@@ -6,7 +6,7 @@ st.set_page_config(page_title="MMM", page_icon="🌤️", layout="centered")
 st.title("🌤️ Consulta d'Estacions Meteorològiques")
 st.write("Selecciona una estació i una data per consultar els registres.")
 
-ID_DEL_MEU_SHEETS = "1IebNZOb6QoGsjTtv5rxkOCrxj_Tl-6dw
+ID_DEL_MEU_SHEETS = "1IebNZOb6QoGsjTtv5rxkOCrxj_Tl-6dw"
 
 URL_EXCEL = f"https://docs.google.com/spreadsheets/d/{ID_DEL_MEU_SHEETS}/export?format=xlsx"
 
