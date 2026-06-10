@@ -6,10 +6,9 @@ st.set_page_config(page_title="MMM", page_icon="🌤️", layout="centered")
 st.title("🌤️ Consulta d'Estacions Meteorològiques")
 st.write("Selecciona una estació i una data per consultar els registres.")
 
-ENLLAÇ_ORIGINAL = "https://docs.google.com/spreadsheets/d/1IebNZOb6QoGsjTtv5rxkOCrxj_Tl-6dw/edit?usp=sharing&ouid=103282406717109577819&rtpof=true&sd=true"
+ID_DEL_MEU_SHEETS = "1IebNZOb6QoGsjTtv5rxkOCrxj_Tl-6dw
 
-ID_FITXER = ENLLAÇ_ORIGINAL.split("/d/")[1].split("/")[0]
-URL_EXCEL = f"https://docs.google.com/spreadsheets/d/1IebNZOb6QoGsjTtv5rxkOCrxj_Tl-6dw/edit?usp=sharing&ouid=103282406717109577819&rtpof=true&sd=true"
+URL_EXCEL = f"https://docs.google.com/spreadsheets/d/{ID_DEL_MEU_SHEETS}/export?format=xlsx"
 
 estacions_disponibles = ["Sa_Pobla", "Lluc"] 
 
