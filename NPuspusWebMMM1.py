@@ -12,7 +12,7 @@ URL_EXCEL = f"https://docs.google.com/spreadsheets/d/{ID_DEL_MEU_SHEETS}/export?
 
 # --- INTERFICIE WEB ---
 # Posa aquí els noms exactes de les teves pestanyes
-estacions_disponibles = ["Sa_Pobla"] 
+estacions_disponibles = ["Sa_Pobla", "Lluc"] 
 estacio = st.selectbox("1. Tria l'estació:", estacions_disponibles)
 
 # Diccionari per mostrar els mesos en text però filtrar per número
@@ -21,7 +21,7 @@ mesos_noms = {
     7: "Juliol", 8: "Agost", 9: "Setembre", 10: "Octubre", 11: "Novembre", 12: "Desembre"
 }
 
-# Creem dues columnes per als desplegables de Mes i Dia
+# Columnes per als desplegables de Mes i Dia
 col_mes, col_dia = st.columns(2)
 
 with col_mes:
@@ -30,7 +30,7 @@ with col_mes:
 with col_dia:
     dia_triat = st.selectbox("3. Selecciona el Dia:", list(range(1, 32)))
 
-# --- CÀRREGA I FILTRAT DE DADES ---
+# --- FILTR DADES ---
 @st.cache_data
 def carregar_i_processar_dades(nom_pestanya):
     dades = pd.read_excel(URL_EXCEL, sheet_name=nom_pestanya)
