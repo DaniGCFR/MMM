@@ -55,9 +55,18 @@ try:
         # Si tens dades de diversos anys per a aquest mateix dia, es mostraran totes en una taula
         # Ideal per veure l'evolució del mateix dia en diferents anys!
         
-        # Netegem la taula abans de mostrar-la perquè no es vegin les columnes quimiques que hem creat
-        taula_neta = fila_filtrada.drop(columns=['Data_Neta', 'Mes_Num', 'Dia_Num'])
-        st.dataframe(taula_neta)
+        #Taula amb nomes mes i dia
+        # 1. Copiem les dades filtrades per no fer malbé l'original
+        taula_neta = fila_filtrada.copy()
+        
+        # 2. Canviem el format de la columna 'Data' perquè només mostri "Dia-Mes" (Ex: 01-Gener)
+        taula_neta['Data'] = taula_neta['Data_Neta'].dt.strftime('%d-%m')
+        
+        # 3. Eliminem les columnes internes que no volem ensenyar
+        taula_neta = taula_neta.drop(columns=['Data_Neta', 'Mes_Num', 'Dia_Num'])
+        
+        # 4. Mostrem la taula final a la web
+        st.dataframe(taula_neta, hide_index=True)
         
     else:
         st.warning(f"No s'han trobat dades per al {dia_triat} de {mesos_noms[mes_triat]}. (Revisa si el mes té 31 dies).")
